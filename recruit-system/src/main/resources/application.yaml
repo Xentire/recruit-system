@@ -4,8 +4,6 @@ server:
   servlet:
     context-path: /
 
-
-
 # 数据库配置
 spring:
   datasource:
@@ -18,7 +16,9 @@ spring:
       api-key: ${WORKSPACE_ID}
       chat:
         options:
-          model: qwen-turbo
+          model: qwen-plus
+          temperature: 0
+
 
 # MyBatis-Plus配置
 mybatis-plus:
@@ -46,3 +46,4 @@ logging:
   level:
     root: info
     com.wits.recsys: debug # 改成你自己的包名
+    org.springframework.ai: DEBUG
