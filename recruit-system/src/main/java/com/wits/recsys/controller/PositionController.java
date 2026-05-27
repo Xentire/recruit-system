@@ -10,16 +10,14 @@ import com.wits.recsys.service.PositionService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/position")
 public class PositionController {
 
-    // 标准注入方式，规避构造注入坑
     private final PositionService positionService;
 
-    // 新增岗位接口
     @PostMapping("/add")
     public Result<Void> addPosition(@Valid @RequestBody PositionAddDTO positionAddDTO) {
         positionService.add(positionAddDTO);

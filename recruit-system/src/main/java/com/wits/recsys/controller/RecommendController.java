@@ -5,14 +5,12 @@ import com.wits.recsys.common.result.Result;
 import com.wits.recsys.pojo.dto.RecommendAddDTO;
 import com.wits.recsys.pojo.dto.RecommendPageDTO;
 import com.wits.recsys.pojo.dto.RecommendUpdateDTO;
-import com.wits.recsys.pojo.po.Recommend;
 import com.wits.recsys.pojo.vo.RecommendVO;
 import com.wits.recsys.service.RecommendService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/recommend")
 @RequiredArgsConstructor

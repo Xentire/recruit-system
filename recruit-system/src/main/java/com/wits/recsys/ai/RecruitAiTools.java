@@ -3,6 +3,7 @@ package com.wits.recsys.ai;
 import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.wits.recsys.common.enums.RecommendStatusEnum;
+import com.wits.recsys.common.exception.BusinessException;
 import com.wits.recsys.pojo.po.Recommend;
 import com.wits.recsys.pojo.po.RecruitPosition;
 import com.wits.recsys.pojo.vo.RecruitSummaryVO;
@@ -74,7 +75,7 @@ public class RecruitAiTools {
     @Tool(description = "接收招聘统计数据列表，生成excel文件并保存到本地，入参为统计数据集合")
     public String generateRecruitExcel(@ToolParam(description = "统计结果数据")List<RecruitSummaryVO> dataList) {
         if (dataList == null || dataList.isEmpty()) {
-            return "数据为空，无法生成excel表格";
+            throw new BusinessException("数据为空，无法生成excel表格");
         }
         String nowTime = LocalDateTime.now().format(FORMATTER);
         String excelPath = BASE_PATH + "_" + nowTime + ".xlsx";
@@ -84,7 +85,7 @@ public class RecruitAiTools {
         if (!parentDir.exists()) {
             boolean createSuccess = parentDir.mkdirs();
             if (!createSuccess) {
-                return "目录创建失败，无法生成excel";
+                throw new BusinessException("目录创建失败，无法生成excel");
             }
         }
 
@@ -96,7 +97,7 @@ public class RecruitAiTools {
             return "Excel生成成功，文件路径： " + file1.getAbsolutePath();
         } catch (Exception e) {
             e.printStackTrace();
-            return "Excel生成失败: 原因: " + e.getMessage();
+            throw new BusinessException("Excel生成失败: 原因: " + e.getMessage());
 
         }
 

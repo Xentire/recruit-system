@@ -11,7 +11,7 @@ import com.wits.recsys.service.CandidateService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/candidate")
 @RequiredArgsConstructor

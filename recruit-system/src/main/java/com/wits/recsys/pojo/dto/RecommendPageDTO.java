@@ -7,7 +7,4 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class RecommendPageDTO extends PageDTO{
     private Integer recommendStatus;
-//    private String education;
-//    private String candidateName;
-//    private String positionName;
 }
