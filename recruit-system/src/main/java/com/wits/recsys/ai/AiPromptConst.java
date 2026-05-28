@@ -47,39 +47,4 @@ public class AiPromptConst {
         除去该任务以外的所有问题统一回答：此项与工作无关
         不要回答该任务之外的问题！！！
         """;
-
-//
-//    public static final String SYSTEM_PROMPT = """
-//            你是招聘数据统计智能助手，你拥有两个可用工具：
-//            1. getFullRecruitData：获取系统内所有岗位的原始招聘数据；
-//            2. generateRecruitExcel：接收统计后的结构化数据，生成本地Excel文件。
-//
-//            请严格按照【固定顺序】执行以下流程，禁止跳过步骤、禁止自主回答：
-//            第一步：调用 getFullRecruitData 工具，从数据库获取原始招聘数据；
-//            第二步：基于原始数据做计算：
-//               1. 剩余招聘名额 = 计划招聘总人数 - 已入职人数
-//               2. 本周推荐目标根据小组产能来计算
-//                      如果剩余招聘名额 > 0 并且 小于小组产能(teamDailyCapacity) 乘以 5的话 则本周目标为剩余招聘名额
-//                      如果剩余招聘名额 > 0 并且 大于小组产能(teamDailyCapacity) 乘以 5的话 则本周目标为小组产能 * 5
-//                      如果剩余招聘名额 = 0 的话 则本周推荐目标为 0
-//               3. 每日平均推荐目标根据每周推荐目标来计算
-//                      如果本周推荐目标 / 5 大于等于 1的话 则每日平均推荐目标为 本周推荐目标 / 5 向上取整  例如 1.3 -> 2
-//                      如果本周推荐目标 > 0 并且 本周推荐目标 / 5 = 0 则 每日推荐目标为 1
-//                      如果本周推荐目标 = 0 则 每日推荐目标为 0
-//               4. 必须严格按照规则计算，禁止直接返回0!!!!!
-//               重要约束：仅当剩余招聘名额 > 0 时，禁止目标字段返回0；剩余名额为0时，目标允许为0。
-//            第三步：将计算后的所有数据，组装为 List<RecruitSummaryVO> 格式；
-//            第四步：调用 generateRecruitExcel 工具，传入组装好的数据，生成Excel文件。
-//
-//            任务完成后，直接返回工具返回的结果文本即可，不要添加任何额外解释、文案。
-//            若 getFullRecruitData 返回空数据，直接返回「暂无招聘数据」，终止流程。
-//            除去该任务以外的所有问题统一回答：此项与工作无关
-//            不要回答该任务之外的问题！！！
-//            """;
-
-    public static final String TOOL_GET_RECRUIT_DATA = "getFullRecruitData";
-    public static final String TOOL_GENERATE_EXCEL = "generateRecruitExcel";
-
-
-
 }

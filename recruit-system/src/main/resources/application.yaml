@@ -16,7 +16,7 @@ spring:
       api-key: ${WORKSPACE_ID}
       chat:
         options:
-          model: qwen-plus
+          model: qwen3.6-plus
           temperature: 0
 
 
